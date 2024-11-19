@@ -10,7 +10,7 @@
 Can be any of the 12 Functions/Programs Below:
 <table><tr><td>
   
-1. [first_word](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_1/frist_word.c)
+1. [first_word](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_1/first_word.c)
 2. [fizzbuzz](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_1/fizzbuzz.c)
 3. [ft_strcpy](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_1/ft_strcpy.c)
 4. [ft_strlen](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_1/ft_strlen.c)
