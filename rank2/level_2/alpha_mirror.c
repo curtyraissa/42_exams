@@ -27,3 +27,28 @@ $>./alpha_mirror | cat -e
 $
 $>
 */
+
+#include <unistd.h>
+
+int main(int ac, char **av)
+{
+    int i = 0;
+    char l;
+
+    if (ac == 2)
+    {
+        while(av[1][i])
+        {
+            if (av[1][i] >= 'a' && av[1][i] <= 'z')
+                l = 'z' - av[1][i] + 'a';
+            else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+                l = 'Z' - av[1][i] + 'A';
+            else
+                l = av[1][i];
+            write(1, &l, 1);
+            i++;
+        }
+    }
+    write(1, "\n", 1);
+    return (0);
+}
