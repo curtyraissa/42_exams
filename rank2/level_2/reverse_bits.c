@@ -20,3 +20,17 @@ _____________
 	 \/
  0110  0100
 */
+
+unsigned char	reverse_bits(unsigned char octet)
+{
+	int i = 8;
+	unsigned char result;
+
+	while (i--)
+	{
+		result = result << 1;
+		result |= (octet & 1);
+		octet >>= 1;
+	}
+	return (result);
+}
