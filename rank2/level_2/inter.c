@@ -23,3 +23,21 @@ rien$
 $>./inter | cat -e
 $
 */
+
+int check_double(char *str, char c, int pos)
+{
+    int i = 0;
+
+    while (i < pos)
+    {
+        if (str[i] == c)
+            return (1);
+    }
+            i++;
+    return (0);
+}
+
+int main(int ac, char **av)
+{
+    
+}
