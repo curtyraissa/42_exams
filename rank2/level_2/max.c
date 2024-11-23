@@ -15,3 +15,19 @@ The function returns the largest number found in the array.
 
 If the array is empty, the function returns 0.
 */
+
+int		max(int* tab, unsigned int len)
+{
+    int i = 1;
+    int max = tab[0];
+
+    if(len == 0)
+        return (0);
+    while (i < len)
+    {
+        if(tab[i] > max)
+            max = tab[i];
+        i++;
+    }
+    return (max);
+}
