@@ -1,4 +1,4 @@
-# 42_exams
+# Exams
 
 ## Exam Setup
 
