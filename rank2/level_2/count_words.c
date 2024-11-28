@@ -29,25 +29,23 @@ $>
 int count_words(char *str)
 {
     int count = 0;
-    int in_word = 0;  // Flag para saber se estamos dentro de uma palavra
+    int in_word = 0;
 
     while (*str)
     {
-        // Se o caractere for alfanumérico e não estamos dentro de uma palavra
         if ((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z') || (*str >= '0' && *str <= '9'))
         {
-            if (!in_word)  // Se não estivermos já dentro de uma palavra
+            if (!in_word)
             {
-                count++;  // Contamos a palavra
-                in_word = 1;  // Marcamos que estamos dentro de uma palavra
+                count++;
+                in_word = 1;
             }
         }
         else
         {
-            in_word = 0;  // Se for um caractere não alfanumérico (delimitador), saímos da palavra
+            in_word = 0;
         }
-        str++;  // Avançamos para o próximo caractere
+        str++;
     }
-
-    return count;
+    return (count);
 }
