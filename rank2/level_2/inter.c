@@ -32,8 +32,8 @@ int check_double(char *str, char c, int pos)
     {
         if (str[i] == c)
             return (1);
+        i++;
     }
-            i++;
     return (0);
 }
 
