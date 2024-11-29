@@ -37,7 +37,7 @@ int main(int ac, char **av)
                 av[1][i] += 32;
                 write(1, "_", 1);
             }
-            write (1, &av[1][i]);
+            write (1, &av[1][i], 1);
             i++;
         }
     }
