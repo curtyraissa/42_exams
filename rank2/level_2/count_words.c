@@ -4,12 +4,14 @@ Expected files   : count_words.c
 Allowed functions: None
 --------------------------------------------------------------------------------
 
-Write a program that takes a string and counts the number of words in it.
+Write a function that takes a string and counts the number of words in it.
 
 A word is a section of string delimited by spaces/tabs or by the start/end of
 the string.
 
-If the number of parameters is not 1, or if there are no words, simply return 0.
+Your function must be declared as follows:
+
+int count_words(char *str);
 
 Examples:
 
@@ -24,28 +26,24 @@ $> ./count_words "  " | cat -e
 $>
 */
 
-#include <unistd.h>
-
 int count_words(char *str)
 {
-    int count = 0;
-    int in_word = 0;
+    int i = 0;
+    int words = 0;
 
-    while (*str)
+    while (str[i] == ' ')
+        i++;
+
+    while (str[i])
     {
-        if ((*str >= 'A' && *str <= 'Z') || (*str >= 'a' && *str <= 'z') || (*str >= '0' && *str <= '9'))
+        if (str[i] != ' ')
         {
-            if (!in_word)
-            {
-                count++;
-                in_word = 1;
-            }
+            words++;
+            while (str[i] && str[i] != ' ')
+                i++;
         }
         else
-        {
-            in_word = 0;
-        }
-        str++;
+            i++;
     }
-    return (count);
+    return (words);
 }
