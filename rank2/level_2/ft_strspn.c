@@ -12,6 +12,8 @@ The function should be prototyped as follows:
 size_t	ft_strspn(const char *s, const char *accept);
 */
 
+// strspn: Mede o comprimento do prefixo com caracteres válidos.
+
 #include <stddef.h>
 
 char *ft_strchr(const char *str, char c)
