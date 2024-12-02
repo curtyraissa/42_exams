@@ -12,6 +12,8 @@ The function should be prototyped as follows:
 char	*ft_strpbrk(const char *s1, const char *s2);
 */
 
+// strpbrk: Encontra o primeiro caractere correspondente.
+
 #include <string.h>
 
 char	*ft_strpbrk(const char *s1, const char *s2)
