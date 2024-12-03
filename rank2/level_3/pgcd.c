@@ -25,3 +25,33 @@ $> ./pgcd 17 3 | cat -e
 $> ./pgcd | cat -e
 $
 */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int ac, char **av)
+{
+	int a, b;
+
+	if (ac == 3)
+	{
+		a = atoi(av[1]);
+        b = atoi(av[2]);
+
+        if (a > 0 && b > 0)
+        {
+            while (a != b)
+            {
+                if (a > b)
+                    a -=b;
+                else
+                    b -= a;
+            }
+            printf("%d\n", a);
+            return(0);
+        }
+	}
+	printf("\n");
+	return (0);
+}
+
