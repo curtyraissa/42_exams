@@ -27,3 +27,53 @@ __second Test A Little Bit   Moar Complex$
      Okay, This Is The Last 1239809147801 But Not    The Least    T$
 $>
 */
+
+#include <unistd.h>
+
+int is_space(char c)
+{
+  return (c == ' ' || (c >= '\t' && c <= '\r'));
+}
+
+int is_upper(char c)
+{
+  return (c >= 'A' && c <= 'Z');
+}
+
+int is_lower(char c)
+{
+  return (c >= 'a' && c <= 'z');
+}
+
+void str_capitalizer(char *str)
+{
+  int nw = 1;
+  while (*str)
+  {
+    if (is_lower(*str) && nw)
+      *str -= 32;
+    else if (is_upper(*str) && !nw)
+      *str += 32;
+    nw = is_space(*str);
+    write(1, str, 1);
+    str++;
+  }
+}
+
+int main (int ac, char **av)
+{
+  int i = 1;
+
+  if (ac > 1)
+  {
+    while (i < ac)
+    {
+      str_capitalizer(av[i]);
+      write(1, "\n", 1);
+      i++;
+    }
+  }
+  else
+    write(1, "\n", 1);
+  return (0);
+}
