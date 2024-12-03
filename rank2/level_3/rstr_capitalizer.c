@@ -27,3 +27,53 @@ seconD tesT A littlE biT   moaR compleX$
      okay, thiS iS thE lasT 1239809147801 buT noT    thE leasT    T$
 $>
 */
+
+#include <unistd.h>
+
+int is_space(char c)
+{
+    return (c == ' ' || (c >= '\t' && c <= '\r'));
+}
+
+int is_upper(char c)
+{
+    return (c >= 'A' && c <= 'Z');
+}
+
+int is_lower(char c)
+{
+    return (c >= 'a' && c <= 'z');
+}
+
+void rstr_capitalizer(char *str)
+{
+  int i = 0;
+
+  while (str[i])
+  {
+    if (is_upper(str[i]))
+      str[i] +=32;
+    if (is_lower(str[i]) && (is_space(str[i + 1]) || str[i + 1] == '\0'))
+      str[i] -= 32;
+    write(1, &str[i], 1);
+    i++;
+  }
+
+}
+int main(int ac, char **av)
+{
+  int i = 1;
+
+  if (ac > 1)
+  {
+    while (i < ac)
+    {
+      rstr_capitalizer(av[i]);
+      write(1, "\n", 1);
+      i++;
+    }
+  }
+  else
+    write(1, "\n", 1);
+  return(0);
+}
