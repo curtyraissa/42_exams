@@ -22,3 +22,66 @@ $>./add_prime_sum | cat -e
 0$
 $>
 */
+
+int is_prime(int n)
+{
+    int i = 2;
+
+    if (n < 2)
+        return (0);
+    while (i * i <= n)
+    {
+        if (n % i == 0)
+            return (0);
+        i++;
+    }
+    return (1);
+}
+
+void ft_putnbr(int n)
+{
+    long num = n;
+    char c;
+    
+    if (num > 9)
+        ft_putnbr(num / 10);
+    c = (num % 10) + '0';
+    write(1, &c, 1);
+}
+
+int ft_atoi(const char *str)
+{
+    int i = 0;
+    int result = 0;
+
+    while (str[i] >= '0' && str[i] <= '9')
+    {
+        result = result * 10 + (str[i] - '0');
+        i++;
+    }
+    return (result);
+}
+
+int main (int ac, char **av)
+{
+    int n = 0;
+    int sum = 0;
+
+    if (ac == 2)
+    {
+        n = ft_atoi(av[1]);
+        if (n <= 0)
+            return (write(1, "0\n", 2), 0);
+        while (n > 0)
+        {
+            if (is_prime(n))
+                sum += n;
+            n--;
+        }
+        ft_putnbr(sum);
+    }
+    else
+        write(1, "0", 1);
+    write(1, "\n", 1);
+    return (0);
+}
