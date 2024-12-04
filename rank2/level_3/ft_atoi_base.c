@@ -20,3 +20,59 @@ Your function must be declared as follows:
 
 int	ft_atoi_base(const char *str, int str_base);
 */
+
+#include <stdlib.h>
+
+int is_upper(char c)
+{
+    return (c >= 'A' && c <= 'Z');
+}
+
+int is_lower(char c)
+{
+    return (c >= 'a' && c <= 'z');
+}
+
+int is_digit(char c)
+{
+    return (c >= '0' && c <= '9');
+}
+
+int is_space(char c)
+{
+    return (c == ' ' || (c >= '\t' && c <= '\r'));
+}
+
+
+int ft_atoi_base(const char *str, int str_base)
+{
+    int i = 0; 
+    int sign = 1;
+    int result = 0;
+
+
+    while (is_space(str[i]))
+        i++;
+    if (str[i] == '-' || str[i] == '+')
+    {
+        if (str[i] == '-')
+            sign = -1;
+        i++;
+    }
+
+    while (str[i])
+    {
+        result *= str_base; 
+        if (is_digit(str[i]))
+            result += str[i] - '0';
+        else if (is_upper(str[i]))
+            result += str[i] - 'A' + 10;
+        else if (is_lower(str[i]))
+            result += str[i] - 'a' + 10;
+        else
+            break;
+
+        i++;
+    }
+    return (result * sign);
+}
