@@ -26,3 +26,37 @@ $> ./expand_str "" | cat -e
 $
 $>
 */
+
+#include <unistd.h>
+
+int ft_isspace(char c)
+{
+	return (c == ' ' || (c >= 9 && c <= 13));
+}
+
+int	main(int ac, char **av)
+{
+	int		end;
+
+	if (ac == 2)
+	{
+		end = 0;
+		while (*av[1] && ft_isspace(*av[1]))
+			av[1]++;
+		while (*av[1])
+		{
+			while (*av[1] && !ft_isspace(*av[1]))
+				write(1, av[1]++, 1);
+			while (*av[1] && ft_isspace(*av[1]))
+			{
+				av[1]++;
+				if (*av[1] == '\0')
+					end = 1;
+			}
+			if (!end)
+				write(1, "   ", 3);
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
+}
