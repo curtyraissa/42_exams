@@ -50,7 +50,9 @@ int ft_atoi_base(const char *str, int str_base)
     int sign = 1;
     int result = 0;
 
-
+    if (str_base < 2 || str_base > 16)
+		return (0);
+    
     while (is_space(str[i]))
         i++;
     if (str[i] == '-' || str[i] == '+')
