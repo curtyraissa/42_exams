@@ -58,7 +58,6 @@ void rstr_capitalizer(char *str)
     write(1, &str[i], 1);
     i++;
   }
-
 }
 int main(int ac, char **av)
 {
