@@ -31,27 +31,23 @@ $
 
 int main(int ac, char **av)
 {
-	int a, b;
-
-	if (ac == 3)
-	{
-		a = atoi(av[1]);
-        b = atoi(av[2]);
+    if (ac == 3)
+    {
+        int a = atoi(av[1]);
+        int b = atoi(av[2]);
 
         if (a > 0 && b > 0)
         {
-            while (a != b)
+            while (b != 0)
             {
-                if (a > b)
-                    a -=b;
-                else
-                    b -= a;
+                int temp = b;
+                b = a % b;
+                a = temp;
             }
             printf("%d\n", a);
-            return(0);
+            return (0);
         }
-	}
-	printf("\n");
-	return (0);
+    }
+    printf("\n");
+    return (0);
 }
-
