@@ -35,23 +35,23 @@ void ft_strncpy(char *dest, char *src, int n)
 
 int count_words(char *str)
 {
-    int count = 0;
-    int in_word = 0;
+    int words = 0;
+    int i = 0;
 
-    while (*str)
+    while (ft_isspace(str[i]))
+        i++;
+    while (str[i])
     {
-        if (!is_space(*str) && !in_word)
+        if (!ft_isspace(str[i]))
         {
-            in_word = 1;
-            count++;
+            words++;
+            while (!ft_isspace(str[i]) && str[i])
+                i++;
         }
-        else if (is_space(*str))
-        {
-            in_word = 0;
-        }
-        str++;
+        else
+            i++;
     }
-    return (count);
+    return (words);
 }
 
 char **ft_split(char *str)
@@ -69,10 +69,10 @@ char **ft_split(char *str)
 
     while (*str)
     {
-        while (*str && is_space(*str))
+        while (*str && ft_isspace(*str))
             str++;
         start = 0;
-        while (str[start] && !is_space(str[start]))
+        while (str[start] && !ft_isspace(str[start]))
             start++;
         if (start > 0)
         {
