@@ -34,3 +34,54 @@ $>./rostring | cat -e
 $
 $>
 */
+
+#include <unistd.h>
+#include <stdlib.h>
+
+int is_space(char c)
+{
+    return (c == ' ' || c == '\t');
+}
+
+void print_word(char *str, int start, int end)
+{
+    for (int i = start; i < end; i++)
+        write(1, &str[i], 1);
+}
+
+void rostring(char *str)
+{
+    int i = 0, len = 0, first_word_start = -1, first_word_end = -1;
+
+    while (str[i] && is_space(str[i]))
+        i++;
+    first_word_start = i;
+    while (str[i] && !is_space(str[i]))
+        i++;
+    first_word_end = i;
+    while (str[i])
+    {
+        while (str[i] && is_space(str[i]))
+            i++;
+        if (str[i] && !is_space(str[i]))
+        {
+            if (len++)
+                write(1, " ", 1);
+            int start = i;
+            while (str[i] && !is_space(str[i]))
+                i++;
+            print_word(str, start, i);
+        }
+    }
+    if (len)
+        write(1, " ", 1);
+    print_word(str, first_word_start, first_word_end);
+}
+
+int main(int argc, char **argv)
+{
+    if (argc > 1)
+        rostring(argv[1]);
+    write(1, "\n", 1);
+    return 0;
+}
