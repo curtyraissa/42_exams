@@ -1,3 +1,4 @@
+/*
 Assignment name : get_next_line
 Expected files : get_next_line.c (42_EXAM can't take .h for now)
 Allowed functions: read, free, malloc
@@ -20,3 +21,4 @@ Calling your function get_next_line() in a loop will therefore allow you to read
 Make sure that your function behaves well when it reads from a file, from the standard output, from a redirection, etc...
 
 No call to another function will be done on the file descriptor between 2 calls of get_next_line(). Finally we consider that get_next_line() has an undefined behaviour when reading from a binary file.
+*/
