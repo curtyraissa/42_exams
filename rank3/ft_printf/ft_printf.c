@@ -33,32 +33,32 @@ Obs: Your function must not have memory leaks. Moulinette will test that.
 #include <unistd.h>
 #include <stdlib.h>
 
-static void    ft_putstr(char *s, int *count)
+static void    ft_putstr(char *s, int *len)
 {
     if (!s)
         s = "(null)";
     while (*s)
-        *count += write(1, s++, 1);
+        *len += write(1, s++, 1);
 }
 
-static void    ft_putnbr(long n, int base, int is_upper, int *count)
+static void    ft_putnbr(long n, int base, int *len)
 {
-    char *digits = is_upper ? "0123456789ABCDEF" : "0123456789abcdef";
+    char *hex = "0123456789abcdef";
 
     if (n < 0)
     {
-        *count += write(1, "-", 1);
+        *len += write(1, "-", 1);
         n = -n;
     }
     if (n >= base)
-        ft_putnbr(n / base, base, is_upper, count);
-    *count += write(1, &digits[n % base], 1);
+        ft_putnbr(n / base, base, len);
+    *len += write(1, &hex[n % base], 1);
 }
 
 int ft_printf(const char *format, ...)
 {
     va_list args;
-    int     count = 0;
+    int     len = 0;
 
     va_start(args, format);
     while (*format)
@@ -67,16 +67,16 @@ int ft_printf(const char *format, ...)
         {
             format++;
             if (*format == 's')
-                ft_putstr(va_arg(args, char *), &count);
+                ft_putstr(va_arg(args, char *), &len);
             else if (*format == 'd')
-                ft_putnbr(va_arg(args, int), 10, 0, &count);
+                ft_putnbr(va_arg(args, int), 10, &len);
             else if (*format == 'x')
-                ft_putnbr(va_arg(args, unsigned int), 16, 0, &count);
+                ft_putnbr(va_arg(args, unsigned int), 16, &len);
         }
         else
-            count += write(1, format, 1);
+            len += write(1, format, 1);
         format++;
     }
     va_end(args);
-    return (count);
+    return (len);
 }
