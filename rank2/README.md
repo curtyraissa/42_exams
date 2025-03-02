@@ -58,7 +58,7 @@ Can be any of the 15 Functions/Programs Below:
 2. [epur_str](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_3/epur_str.c)
 3. [expand_str](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_3/expand_str.c)
 4. [ft_atoi_base](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_3/ft_atoi_base.c)
-5. [ft_list_size](https://github.com/curtyraissa/42_exams/tree/main/rank2/level_3/ft_list_size))
+5. [ft_list_size](https://github.com/curtyraissa/42_exams/tree/main/rank2/level_3/ft_list_size)
 6. [ft_range](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_3/ft_range.c)
 7. [ft_rrange](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_3/ft_rrange.c)
 8. [hidenp](https://github.com/curtyraissa/42_exams/blob/main/rank2/level_3/hidenp.c)
